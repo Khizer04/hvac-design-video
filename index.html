@@ -214,6 +214,11 @@ section { padding: 120px 0; position: relative; }
   font-weight: 700;
   letter-spacing: -0.02em;
 }
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+}
 .nav-logo .mark {
   width: 26px; height: 26px; border-radius: 7px;
   background: var(--ink);
@@ -409,6 +414,12 @@ section { padding: 120px 0; position: relative; }
   color: var(--cool-deep);
   letter-spacing: -0.02em;
 }
+.hero-logo-mark {
+  display: inline-block;
+  vertical-align: -0.06em;
+  height: 0.65em;
+  width: auto;
+}
 .hero-headline .swatch {
   display: inline-block;
   vertical-align: -0.06em;
@@ -453,9 +464,11 @@ section { padding: 120px 0; position: relative; }
   border-bottom: 1px solid var(--line);
 }
 .hero-strip-item {
-  padding: 22px 28px 22px 0;
+  padding: 22px 28px;
   border-right: 1px solid var(--line);
   display: flex; flex-direction: column; gap: 6px;
+  align-items: center;
+  text-align: center;
 }
 .hero-strip-item:last-child { border-right: none; padding-right: 0; }
 .hero-strip-item .k {
@@ -708,10 +721,17 @@ section { padding: 120px 0; position: relative; }
 }
 .service .visual {
   position: absolute;
-  right: -20px; bottom: -20px;
-  width: 200px; height: 200px;
+  right: -10px; bottom: -10px;
+  width: 110px; height: 110px;
   opacity: .9;
   pointer-events: none;
+  z-index: 0;
+}
+.service .num,
+.service h3,
+.service p {
+  position: relative;
+  z-index: 1;
 }
 
 /* svg-y visual decorations */
@@ -1769,8 +1789,7 @@ const Nav = () => {
       <div className="nav-inner">
         <div className="nav-pill">
           <a href="#home" className="nav-logo">
-            <span className="mark"></span>
-            <span>Greaves<span style={{color:'var(--muted)', fontWeight:500}}>/AC</span></span>
+            <img src="assets/logo1.png" alt="Greaves" className="nav-logo-img" />
           </a>
           <div className="nav-links">
             {links.map((l) => <a key={l.label} href={l.href}>{l.label}</a>)}
@@ -1812,7 +1831,7 @@ const Hero = () => {
       <div className="container hero-content">
         <h1 className="hero-headline">
           <span className="word"><span style={{'--d': 0}}>Climate,</span></span>{' '}
-          <span className="swatch" aria-hidden="true"></span>
+          <img src="assets/logo1.png" alt="" aria-hidden="true" className="hero-logo-mark" />
           <br/>
           <span className="word"><span style={{'--d': 1}}>engineered</span></span>{' '}
           <span className="word"><span style={{'--d': 2}} className="accent">for</span></span>{' '}
